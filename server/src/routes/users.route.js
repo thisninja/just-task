@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../models/user.model');
+const { auth } = require('../middleware/auth');
 
 const ERROR_STATUS_MESSAGE = 'check your login info';
 
@@ -31,6 +32,10 @@ router.post('/login', (req, res) => {
     res.statusMessage = ERROR_STATUS_MESSAGE;
     res.status(401).end();
   });
+});
+
+router.get('/', auth, (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;
