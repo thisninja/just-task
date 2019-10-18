@@ -12,6 +12,7 @@ const { mongoose } = require('../db/db');
 const app = express();
 
 const usersRoutes = require('./routes/users.route');
+const tasksRoutes = require('./routes/tasks.route');
 
 const whitelist = ['http://localhost:8000'];
 const CORS_ERR_MSG = 'Not allowed by CORS';
@@ -34,6 +35,7 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 
 app.use('/users', usersRoutes);
+app.use('/tasks', tasksRoutes);
 
 const port = process.env.PORT || 8282;
 app.listen(port, () => {
