@@ -61,4 +61,26 @@ router.patch('/:id', auth, (req, res) => {
   })
 });
 
+router.delete('/:id', auth, (req, res) => {
+  const id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  Task.findOneAndRemove({
+    _id: id,
+    _author: req.user._id
+  })
+    .then((task) => {
+      if (!task) {
+        return res.status(404).send(NO_TASK_FOUND_ERROR_MSG);
+      }
+
+      res.send({ task });
+    }).catch((e) => {
+      res.status(400).send(e);
+    });
+});
+
 module.exports = router;
