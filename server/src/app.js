@@ -7,9 +7,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const { mongoose } = require('../db/db');
+
 const app = express();
 
-const whitelist = ['http://localhost:8282'];
+const whitelist = ['http://localhost:8000'];
 const CORS_ERR_MSG = 'Not allowed by CORS';
 const corsOptions = {
   origin: function (origin, callback) {
@@ -25,7 +27,7 @@ const corsOptions = {
   ]
 };
 
-app.all('*', cors(corsOptions))
+app.all('*', cors(corsOptions));
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 
