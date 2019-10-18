@@ -11,6 +11,8 @@ const { mongoose } = require('../db/db');
 
 const app = express();
 
+const usersRoutes = require('./routes/users.route');
+
 const whitelist = ['http://localhost:8000'];
 const CORS_ERR_MSG = 'Not allowed by CORS';
 const corsOptions = {
@@ -30,6 +32,8 @@ const corsOptions = {
 app.all('*', cors(corsOptions));
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
+
+app.use('/users', usersRoutes);
 
 const port = process.env.PORT || 8282;
 app.listen(port, () => {
