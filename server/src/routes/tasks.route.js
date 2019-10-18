@@ -17,4 +17,14 @@ router.post('/', auth, (req, res) => {
   });
 });
 
+router.get('/', auth, (req, res) => {
+  Task.find({
+    _author: req.user._id
+  }).then((tasks) => {
+    res.send({ tasks });
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
 module.exports = router;
