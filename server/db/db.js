@@ -4,6 +4,7 @@ const MONGO_URI = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_URI, {
+  useCreateIndex: true,
   useNewUrlParser: true,
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
