@@ -1,27 +1,37 @@
+require('./config/config');
+
+const path = require('path');
+const publicPath = path.join(__dirname, '/../');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
 
-// Express configuration
 const app = express();
-app.use(morgan('combined'));
+
+const whitelist = ['http://localhost:8282'];
+const CORS_ERR_MSG = 'Not allowed by CORS';
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error(CORS_ERR_MSG))
+    }
+  },
+  exposedHeaders: [
+    'x-access-token',
+    'expiresIn'
+  ]
+};
+
+app.all('*', cors(corsOptions))
+app.use(express.static(publicPath));
 app.use(bodyParser.json());
-app.use(cors());
-app.listen(process.env.PORT || 8081);
 
-// Mongoose configuration
-mongoose.connect('mongodb://localhost:27017/project');
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', (callback) => {
-  console.log('Connection Succeeded');
+const port = process.env.PORT || 8282;
+app.listen(port, () => {
+  console.log(`The server listening on port ${port}`);
 });
 
-// Handlers
-app.get('/', (req, res) => {
-  res.send({
-    msg: 'up and running',
-  });
-});
+module.exports = { app };
