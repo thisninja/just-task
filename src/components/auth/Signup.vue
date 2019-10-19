@@ -1,12 +1,6 @@
 <template>
   <div class="full-width">
-    <img
-      class="layout__icon"
-      src="@/assets/task-icon.jpg"
-      />
-    <h3>
-      {{ CREATE_ACCOUNT_TITLE }}
-    </h3>
+    <common-placeholder :title="CREATE_ACCOUNT_TITLE" />
   </div>
 </template>
 
