@@ -34,6 +34,15 @@
         {{ LOGIN_TITLE }}
       </md-button>
     </form>
+    <router-link
+      to="/signup"
+      class="layout__link"
+      >
+      {{ NO_ACCOUNT_TITLE }}&nbsp;
+      <span>
+        {{ SIGN_UP_TITLE }}
+      </span>
+    </router-link>
   </div>
 </template>
 
@@ -44,6 +53,8 @@ import {
   ENTER_EMAIL_TITLE,
   ENTER_PASSWORD_TITLE,
   LOGIN_TITLE,
+  NO_ACCOUNT_TITLE,
+  SIGN_UP_TITLE
 } from './constants';
 
 export default {
@@ -59,6 +70,8 @@ export default {
       ENTER_EMAIL_TITLE,
       ENTER_PASSWORD_TITLE,
       LOGIN_TITLE,
+      NO_ACCOUNT_TITLE,
+      SIGN_UP_TITLE,
     }
   },
   methods: {

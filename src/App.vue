@@ -7,7 +7,9 @@
       </md-button>
     </md-toolbar>
     <div class="app__container">
-        <router-view></router-view>
+        <transition name="slide" mode="out-in">
+          <router-view></router-view>
+        </transition>
     </div>
   </div>
 </template>
@@ -15,7 +17,6 @@
 <script>
 const LOGOUT_TITLE = 'LOGOUT';
 
-import EventBus from './eventBus';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -66,7 +67,58 @@ export default {
   }
 }
 
+.layout__icon {
+  width: 58px;
+  height: 58px;
+}
+
+.layout__link {
+  margin-top: 10px;
+  color: $material-grey-200;
+  &:hover {
+    color: $material-grey-200;
+  }
+
+  span {
+    color: $material-blue-200;
+  }
+}
+
+.auth-form {
+  margin-bottom: 10px;
+}
+
 .full-width {
   width: 100%;
+}
+
+.slide-enter-active {
+    animation: slide-in 200ms ease-out forwards;
+}
+
+.slide-leave-active {
+    animation: slide-out 200ms ease-out forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
 }
 </style>

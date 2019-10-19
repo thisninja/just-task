@@ -42,6 +42,15 @@
         {{ SIGN_UP_TITLE }}
       </md-button>
     </form>
+    <router-link
+      to="/login"
+      class="layout__link"
+    >
+      {{ HAVE_AN_ACCOUNT_TITLE }}&nbsp;
+      <span>
+        {{ LOGIN_TITLE }}
+      </span>
+    </router-link>
   </div>
 </template>
 
@@ -53,6 +62,8 @@ import {
   ENTER_PASSWORD_TITLE,
   CONFIRM_PASSWORD_TITLE,
   SIGN_UP_TITLE,
+  HAVE_AN_ACCOUNT_TITLE,
+  LOGIN_TITLE,
 } from './constants';
 
 export default {
@@ -70,6 +81,8 @@ export default {
       ENTER_PASSWORD_TITLE,
       CONFIRM_PASSWORD_TITLE,
       SIGN_UP_TITLE,
+      HAVE_AN_ACCOUNT_TITLE,
+      LOGIN_TITLE,
     }
   },
   methods: {
