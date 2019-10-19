@@ -1,0 +1,7 @@
+{
+  "development": {
+    "ORIGIN": "http://localhost:8000",
+    "MONGODB_URI": "mongodb://localhost/just-todo-v2",
+    "SECRET": "don't tell anyone"
+  }
+}

@@ -26,7 +26,7 @@ const corsOptions = {
   },
   exposedHeaders: [
     'x-access-token',
-    'expiresIn'
+    'expires-in'
   ]
 };
 

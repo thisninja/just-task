@@ -3,8 +3,6 @@ const router = express.Router();
 const { User } = require('../models/user.model');
 const { auth } = require('../middleware/auth');
 
-const ERROR_STATUS_MESSAGE = 'check your login info';
-
 router.post('/', (req, res) => {
   const { email, password } = req.body;
   const body = { email, password };
@@ -13,10 +11,9 @@ router.post('/', (req, res) => {
   user.save().then(() => {
     return user.generateAuthToken();
   }).then((token) => {
-    res.header('x-access-token', token).header('expiresIn', 3600).send(user);
+    res.header('x-access-token', token).header('expires-in', 3600).send(user);
   }).catch((e) => {
-    res.statusMessage = ERROR_STATUS_MESSAGE;
-    res.status(401).end();
+    res.status(400).send(e);
   })
 });
 
@@ -26,11 +23,10 @@ router.post('/login', (req, res) => {
 
   User.findByCredentials(body.email, body.password).then((user) => {
     return user.generateAuthToken().then((token) => {
-      res.header('x-access-token', token).header('expiresIn', 3600).send(user);
+      res.header('x-access-token', token).header('expires-in', 3600).send(user);
     });
   }).catch((e) => {
-    res.statusMessage = ERROR_STATUS_MESSAGE;
-    res.status(401).end();
+    res.status(400).send(e);
   });
 });
 

@@ -13,8 +13,8 @@ router.post('/', auth, (req, res) => {
     dueDate: new Date(req.body.dueDate).getTime()
   });
 
-  task.save().then((doc) => {
-    res.send(doc);
+  task.save().then((document) => {
+    res.send(document);
   }, (e) => {
     res.status(400).send(e);
   });
