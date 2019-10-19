@@ -75,9 +75,14 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      // @TODO
-    }
+    onSubmit (e) {
+      const formData = {
+        email: this.email,
+        password: this.password,
+      };
+
+      this.$store.dispatch('login', formData);
+    },
   },
 }
 </script>
