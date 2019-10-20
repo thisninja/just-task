@@ -11,6 +11,14 @@
           <router-view></router-view>
         </transition>
     </div>
+    <md-snackbar
+      :md-position="snackbarOptions.position"
+      :md-duration="snackbarOptions.duration"
+      :md-active.sync="showSnackbar"
+      md-persistent
+      >
+        {{ errorMessage }}
+    </md-snackbar>
   </div>
 </template>
 
@@ -22,11 +30,19 @@ import {
   mapActions,
 } from 'vuex';
 
+import EventBus from './eventBus';
+
 export default {
   name: 'App',
   data () {
     return {
       LOGOUT_TITLE,
+      errorMessage: '',
+      showSnackbar: false,
+      snackbarOptions: {
+        position: 'center',
+        duration: 4000,
+      },
     }
   },
   computed: {
@@ -42,6 +58,15 @@ export default {
     ]),
   },
   created() {
+    EventBus.$on([
+    'token-validation:failed',
+    'login:failed',
+    'signup:failed',
+    ], (msg) => {
+      this.errorMessage = msg;
+      this.showSnackbar = true;
+    });
+
     this.keepSessionPersistent();
   },
 }

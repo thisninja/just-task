@@ -1,9 +1,10 @@
 import axios from '../../services/Api';
+import EventBus from '../../eventBus';
 import router from '../../router/router';
 import {
   EMAIL_IN_USE,
   LOGIN_ERROR_MSG_DEFAULT,
-  SIGNUP_ERROR_MSG_DEFAULT,
+  SIGN_UP_ERROR_MSG_DEFAULT,
 } from '../constants';
 
 const state = {
@@ -68,12 +69,14 @@ const actions = {
       authUser(res, { commit, dispatch });
       router.push({ name: 'Home' });
     } catch (error) {
-      let errorMsg = SIGNUP_ERROR_MSG_DEFAULT;
+      let errorMsg = SIGN_UP_ERROR_MSG_DEFAULT;
       const response = error.response;
 
       if (response && response.data && response.data.code === 11000) {
         errorMsg = EMAIL_IN_USE;
       }
+
+      EventBus.$emit('signup:failed', errorMsg);
     }
   },
   async login({ commit, dispatch }, authData) {
@@ -92,6 +95,8 @@ const actions = {
       if (response && typeof response.data === 'string') {
         errorMsg = response.data;
       }
+
+      EventBus.$emit('login:failed', errorMsg);
     }
   },
   keepSessionPersistent({ commit }) {

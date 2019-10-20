@@ -8,7 +8,7 @@
         <li
         class="validation-errors__error"
         v-for="(error, index) in errors"
-        :key="index"
+        :key="`error__${index}`"
         >
           {{ error }}
         </li>
