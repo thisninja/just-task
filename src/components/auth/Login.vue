@@ -1,12 +1,18 @@
 <template>
   <div class="full-width">
     <common-placeholder :title="LOGIN_CTA_TITLE" />
+    <validation-errors
+      v-if="errors.length"
+      :errors="errors"
+    />
     <form
       novalidate
       @submit.prevent="onSubmit"
       class="auth-form"
       >
-      <md-field>
+      <md-field
+        :class="getValidationClassByType('email')"
+        >
         <label>
           {{ ENTER_EMAIL_TITLE }}
         </label>
@@ -16,7 +22,9 @@
           >
         </md-input>
       </md-field>
-      <md-field>
+      <md-field
+        :class="getValidationClassByType('password')"
+        >
         <label>
           {{ ENTER_PASSWORD_TITLE }}
         </label>
@@ -48,6 +56,7 @@
 
 <script>
 import CommonPlaceholder from './CommonPlaceholder';
+import ValidationErrors from './ValidationErrors';
 import {
   LOGIN_CTA_TITLE,
   ENTER_EMAIL_TITLE,
@@ -56,11 +65,13 @@ import {
   NO_ACCOUNT_TITLE,
   SIGN_UP_TITLE
 } from './constants';
+import { validationMixin } from './mixins/Validation';
 
 export default {
   name: 'Login',
   components: {
     CommonPlaceholder,
+    ValidationErrors,
   },
   data () {
     return {
@@ -74,8 +85,13 @@ export default {
       SIGN_UP_TITLE,
     }
   },
+  mixins: [validationMixin],
   methods: {
     onSubmit (e) {
+      if (!this.isValidFormByType('login')) {
+        return;
+      };
+
       const formData = {
         email: this.email,
         password: this.password,
