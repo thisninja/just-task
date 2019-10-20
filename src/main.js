@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import {
   MdToolbar,
   MdButton,
+  MdCard,
   MdField,
 } from 'vue-material/dist/components'
 
@@ -16,6 +17,7 @@ import store from './store/store';
   VueRouter,
   MdToolbar,
   MdButton,
+  MdCard,
   MdField,
 ].forEach(item => Vue.use(item));
 import 'vue-material/dist/vue-material.min.css'
