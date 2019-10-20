@@ -9,7 +9,7 @@
       </md-button>
       <md-card
         class="card-wrapper"
-        v-for="task in tasks"
+        v-for="task in newestFirst"
         :key="task._id"
         >
         <md-card-header>
@@ -62,6 +62,10 @@
 
 <script>
 import {
+  mapGetters,
+  mapActions,
+} from 'vuex';
+import {
   COMPLETED_AT_TEXT,
   CREATE_NEW_TASK_TEXT,
   MARK_AS_COMPLETED,
@@ -76,7 +80,6 @@ export default {
   data() {
     return {
       newTaskForm: false,
-      tasks: [],
       COMPLETED_AT_TEXT,
       CREATE_NEW_TASK_TEXT,
       MARK_AS_COMPLETED,
@@ -86,18 +89,43 @@ export default {
       DELETE_BTN_TEXT,
     };
   },
+  created () {
+    this.getTasks();
+  },
+  computed: {
+    ...mapGetters([
+      'tasks',
+    ]),
+    newestFirst() {
+      return this.tasks.slice().reverse();
+    },
+  },
   methods: {
+    ...mapActions([
+      'getTasks',
+      'updateTask',
+      'deleteTaskById',
+    ]),
     getFormattedDate(date) {
       return new Date(date).toDateString();
     },
     onDelete({ _id }) {
-      // @TODO
+      this.deleteTaskById(_id);
     },
     onComplete({ _id, text, completed, dueDate }) {
-      // @TODO
+      this.updateTask(
+        {
+          _id,
+          text,
+          completed: !completed,
+          dueDate
+        }
+      );
     },
     onEdit({ _id, text }) {
-      // @TODO
+      this.selectedId = _id;
+      this.selectedText = text;
+      this.editTaskForm = !this.editTaskForm;
     },
   }
 };
@@ -107,5 +135,13 @@ export default {
 .task-list {
   min-width: 350px;
   max-width: 700px;
+
+  .md-card.card-wrapper {
+    margin: 10px;
+  }
+
+  .completed {
+    text-decoration-line: line-through;
+  }
 }
 </style>
