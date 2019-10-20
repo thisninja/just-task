@@ -2,7 +2,7 @@
   <div class="app__wrapper">
     <md-toolbar v-if="auth" class="md-dense">
       <h3 class="md-title toolbar">Welcome, {{ email }}</h3>
-      <md-button class="md-primary" @click="onLogout">
+      <md-button class="md-primary" @click="logout">
         {{ LOGOUT_TITLE }}
       </md-button>
     </md-toolbar>
@@ -17,7 +17,10 @@
 <script>
 const LOGOUT_TITLE = 'LOGOUT';
 
-import { mapGetters } from 'vuex';
+import {
+  mapGetters,
+  mapActions,
+} from 'vuex';
 
 export default {
   name: 'App',
@@ -33,9 +36,13 @@ export default {
     }),
   },
   methods: {
-    onLogout() {
-      // @TODO
-    }
+    ...mapActions([
+      'logout',
+      'keepSessionPersistent',
+    ]),
+  },
+  created() {
+    this.keepSessionPersistent();
   },
 }
 </script>

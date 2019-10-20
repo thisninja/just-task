@@ -94,10 +94,44 @@ const actions = {
       }
     }
   },
+  keepSessionPersistent({ commit }) {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      return false;
+    }
+
+    const expirationDate = localStorage.getItem('expirationDate');
+    const now = new Date();
+    if (now >= expirationDate) {
+      return false;
+    }
+
+    const userId = localStorage.getItem('userId');
+    const userEmail = localStorage.getItem('email');
+    commit('authUser', {
+      token: token,
+      userId: userId,
+      email: userEmail
+    })
+  },
   setLogoutTimer({ commit }, expirationTime) {
     setTimeout(() => {
       commit('clearAuthData')
     }, expirationTime * 1000)
+  },
+  logout({ commit }) {
+    try {
+      commit('clearAuthData');
+
+      localStorage.removeItem('expirationDate');
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('email');
+
+      router.push({ name: 'Login' });
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 
