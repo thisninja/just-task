@@ -27,6 +27,20 @@ import store from './store/store';
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+router.beforeEach((to, from, next) => {
+  store.dispatch('keepSessionPersistent');
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    !store.getters.isAuthenticated
+      ? next({ name: 'Login' })
+      : next();
+  } else {
+    store.getters.isAuthenticated
+      ? next({ name: 'Home' })
+      : next();
+  }
+});
+
 new Vue({
   el: '#app',
   store,
