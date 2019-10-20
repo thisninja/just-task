@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import {
+  MdDatepicker,
+  MdDialog,
   MdToolbar,
   MdButton,
   MdCard,
@@ -15,6 +17,8 @@ import store from './store/store';
 
 [
   VueRouter,
+  MdDatepicker,
+  MdDialog,
   MdToolbar,
   MdButton,
   MdCard,

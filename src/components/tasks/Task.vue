@@ -1,6 +1,6 @@
 <template>
   <div class="task-list">
-    <div v-if="!newTaskForm">
+    <div v-if="!editTaskForm && !newTaskForm">
       <md-button
         class="md-raised md-accent"
         @click="newTaskForm = !newTaskForm"
@@ -57,6 +57,23 @@
         </md-card-actions>
       </md-card>
     </div>
+    <div v-if="editTaskForm || newTaskForm">
+      <task-form
+        v-if="editTaskForm"
+        :id="selectedId"
+        :currentText="selectedText"
+        @update="editTaskForm = !editTaskForm"
+        :due-date="selectedDate"
+        >
+      </task-form>
+      <task-form
+        v-else
+        :currentText="text"
+        @update="newTaskForm = !newTaskForm"
+        :due-date="selectedDate"
+        >
+      </task-form>
+    </div>
   </div>
 </template>
 
@@ -65,6 +82,7 @@ import {
   mapGetters,
   mapActions,
 } from 'vuex';
+
 import {
   COMPLETED_AT_TEXT,
   CREATE_NEW_TASK_TEXT,
@@ -73,13 +91,21 @@ import {
   DUE_DATE_TEXT,
   EDIT_BTN_TEXT,
   DELETE_BTN_TEXT,
+  SAVE_BTN_TEXT,
 } from './constants';
+
+import TaskForm from './TaskForm.vue';
 
 export default {
   name: 'Task',
   data() {
     return {
       newTaskForm: false,
+      text: '',
+      editTaskForm: false,
+      selectedDate: null,
+      selectedId: null,
+      selectedText: '',
       COMPLETED_AT_TEXT,
       CREATE_NEW_TASK_TEXT,
       MARK_AS_COMPLETED,
@@ -87,10 +113,14 @@ export default {
       DUE_DATE_TEXT,
       EDIT_BTN_TEXT,
       DELETE_BTN_TEXT,
+      SAVE_BTN_TEXT,
     };
   },
   created () {
     this.getTasks();
+  },
+  components: {
+    TaskForm,
   },
   computed: {
     ...mapGetters([
