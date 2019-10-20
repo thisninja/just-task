@@ -1,6 +1,6 @@
-import Login from '../components/auth/Login.vue';
-import Signup from '../components/auth/Signup.vue';
-import Home from '../components/Home.vue';
+const Login = () => import(/* webpackChunkName: "login" */'../components/auth/Login.vue');
+const Signup = () => import(/* webpackChunkName: "signup" */'../components/auth/Signup.vue');
+const Home = () => import(/* webpackChunkName: "home" */'../components/Home.vue');
 
 const routes = [
   {
