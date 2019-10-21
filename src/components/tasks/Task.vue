@@ -2,8 +2,8 @@
   <div class="task-list">
     <div v-if="!editTaskForm && !newTaskForm">
       <md-button
-        class="md-raised md-accent"
-        @click="newTaskForm = !newTaskForm"
+        class="md-raised md-accent fn-create-new-task"
+        @click="toggleNewTaskForm"
         >
           {{ CREATE_NEW_TASK_TEXT }}
       </md-button>
@@ -35,7 +35,7 @@
 
         <md-card-actions>
           <md-button
-            class="md-primary"
+            class="md-primary fn-complete-task"
             @click="onComplete(task)">
               {{ task.completed
                 ? MARK_AS_UNCOMPLETED
@@ -43,13 +43,14 @@
               }}
           </md-button>
           <md-button
+            class="fn-edit-task"
             v-if="!task.completed"
             @click="onEdit(task)"
             >
               {{ EDIT_BTN_TEXT }}
           </md-button>
           <md-button
-            class="md-accent"
+            class="md-accent fn-delete-task"
             @click="onDelete(task)"
             >
               {{ DELETE_BTN_TEXT }}
@@ -141,6 +142,9 @@ export default {
     },
     onDelete({ _id }) {
       this.deleteTaskById(_id);
+    },
+    toggleNewTaskForm() {
+      this.newTaskForm = !this.newTaskForm;
     },
     onComplete({ _id, text, completed, dueDate }) {
       this.updateTask(

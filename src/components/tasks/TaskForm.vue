@@ -24,12 +24,16 @@
         </md-input>
       </md-field>
       <md-button
+        class="fn-save"
         :disabled="disabled"
         @click="targetHandler"
         >
         {{ SAVE_BTN_TEXT }}
       </md-button>
-      <md-button @click="onCancel">
+      <md-button
+        class="fn-cancel"
+        @click="onCancel"
+        >
         {{ CANCEL_BTN_TEXT }}
       </md-button>
     </div>
