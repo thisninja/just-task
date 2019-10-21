@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskForm.vue Add TaskForm should match snapshot 1`] = `
+<div class="card-body">
+  <div class="card-text"><span>
+      Add task
+    </span>
+    <md-datepicker-stub value="1572123600000" mddisableddates="function disabledDates(date) {
+        return date.getTime() < Date.now();
+      }" mdopenonfocus="true" mdoverridenative="true" mdimmediately="true" mdmodeltype="function Date() { [native code] }" mddebounce="1000"><label>
+        Due date
+      </label></md-datepicker-stub>
+    <md-field-stub mdcounter="true" mdtogglepassword="true"><label>
+        Enter your task description
+      </label>
+      <md-input-stub value="Do someting 1st time" id="md-input-4q9d28au" type="text"></md-input-stub>
+    </md-field-stub>
+    <md-button-stub mdripple="true" type="button" class="fn-save">
+      Save
+    </md-button-stub>
+    <md-button-stub mdripple="true" type="button" class="fn-cancel">
+      Cancel
+    </md-button-stub>
+  </div>
+</div>
+`;
+
+exports[`TaskForm.vue Edit TaskForm should match snapshot 1`] = `
+<div class="card-body">
+  <div class="card-text"><span>
+      Edit task
+    </span>
+    <md-datepicker-stub value="1572300000000" mddisableddates="function disabledDates(date) {
+        return date.getTime() < Date.now();
+      }" mdopenonfocus="true" mdoverridenative="true" mdimmediately="true" mdmodeltype="function Date() { [native code] }" mddebounce="1000"><label>
+        Due date
+      </label></md-datepicker-stub>
+    <md-field-stub mdcounter="true" mdtogglepassword="true"><label>
+        Enter your task description
+      </label>
+      <md-input-stub value="Do someting 2nd time" id="md-input-ecmezbpbq" type="text"></md-input-stub>
+    </md-field-stub>
+    <md-button-stub mdripple="true" type="button" class="fn-save">
+      Save
+    </md-button-stub>
+    <md-button-stub mdripple="true" type="button" class="fn-cancel">
+      Cancel
+    </md-button-stub>
+  </div>
+</div>
+`;
