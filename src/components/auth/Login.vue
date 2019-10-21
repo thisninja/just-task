@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import CommonPlaceholder from './CommonPlaceholder';
 import ValidationErrors from './ValidationErrors';
 import {
@@ -87,7 +88,10 @@ export default {
   },
   mixins: [validationMixin],
   methods: {
-    onSubmit (e) {
+    ...mapActions([
+      'login',
+    ]),
+    async onSubmit (e) {
       if (!this.isValidFormByType('login')) {
         return;
       };
@@ -97,7 +101,9 @@ export default {
         password: this.password,
       };
 
-      this.$store.dispatch('login', formData);
+      await this.login(formData);
+
+      this.$router.push({ name: 'Home'});
     },
   },
 }

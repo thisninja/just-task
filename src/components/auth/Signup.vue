@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import CommonPlaceholder from './CommonPlaceholder';
 import ValidationErrors from './ValidationErrors';
 import {
@@ -100,7 +101,10 @@ export default {
   },
   mixins: [validationMixin],
   methods: {
-    onSubmit (e) {
+    ...mapActions([
+      'signup',
+    ]),
+    async onSubmit (e) {
       if (!this.isValidFormByType('signup')) {
         return;
       };
@@ -111,7 +115,9 @@ export default {
         confirmPassword: this.confirmPassword,
       };
 
-      this.$store.dispatch('signup', formData);
+      await this.signup(formData);
+
+      this.$router.push({ name: 'Home'});
     }
   },
 }
