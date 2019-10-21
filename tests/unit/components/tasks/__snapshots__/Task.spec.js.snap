@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task.vue methods action handlers onComplete should match snapshot 1`] = `
+<div class="task-list">
+  <div><button type="button" class="md-button md-raised md-accent fn-create-new-task md-theme-default">
+      <div class="md-ripple">
+        <div class="md-button-content">
+          Create new task
+        </div>
+      </div>
+    </button>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title"><span>✔️</span> <span class="completed">
+            Do someting 2nd time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Tue Oct 29 2019
+        </div>
+        <div class="md-body-2">
+          Completed at: Mon Oct 07 2019
+        </div>
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as uncompleted
+            </div>
+          </div>
+        </button>
+        <!----> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title">
+          <!----> <span class="">
+            Do someting 1st time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Sun Oct 27 2019
+        </div>
+        <!---->
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as completed
+            </div>
+          </div>
+        </button> <button type="button" class="md-button fn-edit-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Edit
+            </div>
+          </div>
+        </button> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Task.vue methods action handlers onDelete should match snapshot 1`] = `
+<div class="task-list">
+  <div><button type="button" class="md-button md-raised md-accent fn-create-new-task md-theme-default">
+      <div class="md-ripple">
+        <div class="md-button-content">
+          Create new task
+        </div>
+      </div>
+    </button>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title"><span>✔️</span> <span class="completed">
+            Do someting 2nd time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Tue Oct 29 2019
+        </div>
+        <div class="md-body-2">
+          Completed at: Mon Oct 07 2019
+        </div>
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as uncompleted
+            </div>
+          </div>
+        </button>
+        <!----> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title">
+          <!----> <span class="">
+            Do someting 1st time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Sun Oct 27 2019
+        </div>
+        <!---->
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as completed
+            </div>
+          </div>
+        </button> <button type="button" class="md-button fn-edit-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Edit
+            </div>
+          </div>
+        </button> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Task.vue methods action handlers onEdit should match snapshot 1`] = `
+<div class="task-list">
+  <div><button type="button" class="md-button md-raised md-accent fn-create-new-task md-theme-default">
+      <div class="md-ripple">
+        <div class="md-button-content">
+          Create new task
+        </div>
+      </div>
+    </button>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title"><span>✔️</span> <span class="completed">
+            Do someting 2nd time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Tue Oct 29 2019
+        </div>
+        <div class="md-body-2">
+          Completed at: Mon Oct 07 2019
+        </div>
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as uncompleted
+            </div>
+          </div>
+        </button>
+        <!----> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+    <div class="md-card card-wrapper md-theme-default">
+      <div class="md-card-header">
+        <div class="md-title">
+          <!----> <span class="">
+            Do someting 1st time
+          </span></div>
+        <div class="md-body-2">
+          Due date: Sun Oct 27 2019
+        </div>
+        <!---->
+      </div>
+      <div class="md-card-actions md-alignment-right"><button type="button" class="md-button md-primary fn-complete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Mark as completed
+            </div>
+          </div>
+        </button> <button type="button" class="md-button fn-edit-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Edit
+            </div>
+          </div>
+        </button> <button type="button" class="md-button md-accent fn-delete-task md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Delete
+            </div>
+          </div>
+        </button></div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Task.vue snapshots should match snapshot if !editTaskForm && !newTaskForm 1`] = `
+<div class="task-list">
+  <div><button type="button" class="md-button md-raised md-accent fn-create-new-task md-theme-default">
+      <div class="md-ripple">
+        <div class="md-button-content">
+          Create new task
+        </div>
+      </div>
+    </button> </div>
+  <!---->
+</div>
+`;
+
+exports[`Task.vue snapshots should match snapshot if editTaskForm || newTaskForm 1`] = `
+<div class="task-list">
+  <!---->
+  <div>
+    <div class="card-body">
+      <div class="card-text"><span>
+      Add task
+    </span>
+        <div class="md-field md-theme-default md-clearable md-datepicker"><i class="md-icon md-icon-font md-icon-image md-date-icon md-theme-default"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg></i> <input type="text" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" id="md-input-sw8m4l7pw" class="md-input"> <label for="md-input-sw8m4l7pw">
+            Due date
+          </label>
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div class="md-field md-theme-default"><label for="md-input-953nbnd89">
+            Enter your task description
+          </label> <input type="text" id="md-input-953nbnd89" class="md-input">
+          <!---->
+          <!---->
+          <!---->
+        </div> <button disabled="disabled" type="button" class="md-button fn-save md-theme-default">
+          <div class="md-ripple md-disabled">
+            <div class="md-button-content">
+              Save
+            </div>
+          </div>
+        </button> <button type="button" class="md-button fn-cancel md-theme-default">
+          <div class="md-ripple">
+            <div class="md-button-content">
+              Cancel
+            </div>
+          </div>
+        </button></div>
+    </div>
+  </div>
+</div>
+`;
