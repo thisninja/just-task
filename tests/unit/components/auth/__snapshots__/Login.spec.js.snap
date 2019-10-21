@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login.vue snapshots should match snapshot 1`] = `
+<div class="full-width">
+  <common-placeholder-stub title="Log into your account to use the app"></common-placeholder-stub>
+  <!---->
+  <form novalidate="novalidate" class="auth-form">
+    <md-field-stub mdcounter="true" mdtogglepassword="true" class=""><label>
+        Enter your email
+      </label>
+      <md-input-stub value="" required="true" id="md-input-uiflt5o9r" type="text"></md-input-stub>
+    </md-field-stub>
+    <md-field-stub mdcounter="true" mdtogglepassword="true" class=""><label>
+        Enter your password
+      </label>
+      <md-input-stub value="" required="true" id="md-input-qyd7gti1pg" type="password"></md-input-stub>
+    </md-field-stub>
+    <md-button-stub mdripple="true" type="submit" class="md-raised md-primary">
+      Login
+    </md-button-stub>
+  </form>
+  <router-link-stub to="/signup" tag="a" event="click" class="layout__link">
+    Don't have an account?&nbsp;
+    <span>
+      Sign up
+    </span></router-link-stub>
+</div>
+`;
