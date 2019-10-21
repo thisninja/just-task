@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationErrors.vue should match snapshot 1`] = `
+<div class="validation-errors"><b>
+    Please correct the following error(s):
+  </b>
+  <ul><span name="slide" mode="out-in"><li class="validation-errors__error">
+        foo
+      </li><li class="validation-errors__error">
+        bar
+      </li></span></ul>
+</div>
+`;
